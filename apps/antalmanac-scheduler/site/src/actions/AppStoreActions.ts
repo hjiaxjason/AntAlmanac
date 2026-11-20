@@ -13,7 +13,7 @@ import { deleteTempSaveData } from '$stores/localTempSaveDataHelpers';
 import { useScheduleComponentsToggleStore } from '$stores/ScheduleComponentsToggleStore';
 import { useSessionStore } from '$stores/SessionStore';
 import { openSnackbar } from '$stores/SnackbarStore';
-import { useUserInfoStore } from '$stores/UserInfoStore';
+import { useUserMajorsStore } from '$stores/UserMajorsStore';
 import { getSchoolsFromMajors } from '@packages/antalmanac-types';
 import {
     type AACourseWithTerm,
@@ -63,7 +63,7 @@ export const addCourse = (
         },
     });
     const terms = AppStore.termsInSchedule(course.term);
-    const userSchools = getSchoolsFromMajors(useUserInfoStore.getState().majors);
+    const userSchools = getSchoolsFromMajors(useUserMajorsStore.getState().majors);
 
     const restrictionCode = getRestrictionToWarn({
         restrictions: section.restrictions,

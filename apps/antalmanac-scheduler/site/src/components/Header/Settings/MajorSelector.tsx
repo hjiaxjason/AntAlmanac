@@ -1,6 +1,6 @@
 import generatedMajors from '$generated/majors.json';
 import { useSessionStore } from '$stores/SessionStore';
-import { useUserInfoStore } from '$stores/UserInfoStore';
+import { useUserMajorsStore } from '$stores/UserMajorsStore';
 import { Edit } from '@mui/icons-material';
 import { Box, Button, Stack, Typography } from '@mui/material';
 import { getSchoolsFromMajors } from '@packages/antalmanac-types';
@@ -12,7 +12,7 @@ const ALL_MAJORS: Record<string, string> = generatedMajors;
 
 export function MajorSelector() {
     const sessionIsValid = useSessionStore((state) => state.sessionIsValid);
-    const majors = useUserInfoStore((state) => state.majors);
+    const majors = useUserMajorsStore((state) => state.majors);
     const schools = useMemo(() => getSchoolsFromMajors(majors), [majors]);
     const [open, setOpen] = useState(false);
 

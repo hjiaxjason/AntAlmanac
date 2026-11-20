@@ -6,7 +6,7 @@ import { create } from 'zustand';
 
 const ALL_MAJORS: Record<string, string> = generatedMajors;
 
-interface UserInfoStore {
+interface UserMajorsStore {
     initialized: boolean;
     majors: string[];
     loadUserInfo: () => Promise<void>;
@@ -15,7 +15,7 @@ interface UserInfoStore {
 
 let latestSaveId = 0;
 
-export const useUserInfoStore = create<UserInfoStore>((set, get) => ({
+export const useUserMajorsStore = create<UserMajorsStore>((set, get) => ({
     initialized: false,
     majors: [],
 

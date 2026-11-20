@@ -1,5 +1,5 @@
 import generatedMajors from '$generated/majors.json';
-import { useUserInfoStore } from '$stores/UserInfoStore';
+import { useUserMajorsStore } from '$stores/UserMajorsStore';
 import { Autocomplete, TextField } from '@mui/material';
 import {
     Button,
@@ -59,7 +59,7 @@ const MajorField = memo(({ value, onChange }: MajorFieldProps) => {
 MajorField.displayName = 'MajorField';
 
 export function MajorSchoolDialog({ open, onClose }: MajorSchoolDialogProps) {
-    const [savedMajors, setMajors] = useUserInfoStore(useShallow((state) => [state.majors, state.setMajors]));
+    const [savedMajors, setMajors] = useUserMajorsStore(useShallow((state) => [state.majors, state.setMajors]));
 
     const [selectedMajors, setSelectedMajors] = useState<string[]>(savedMajors);
     const schools = useMemo(() => getSchoolsFromMajors(selectedMajors), [selectedMajors]);

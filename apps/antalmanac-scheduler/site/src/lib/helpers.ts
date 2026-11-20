@@ -39,21 +39,6 @@ export const warnMultipleTerms = (terms: Set<AATerm>) => {
     warnCourse([getWarnMultipleTermsMessage(terms)]);
 };
 
-// export const warnEnrollmentRestriction = (restriction_code: WebsocRestrictionCodeOption, courseSchool: string) => {
-//     openSnackbar(
-//         'warning',
-//         getEnrollmentRestrictionWarningMessage(restriction_code as MajorSchoolRestrictionCode, courseSchool),
-//         {
-//             style: {
-//                 whiteSpace: 'pre-line',
-//                 '& .MuiAlert-message': { fontSize: '1.25rem' },
-//             },
-//             position: { vertical: 'top', horizontal: 'center' },
-//             durationSeconds: 4,
-//         }
-//     );
-// };
-
 export async function clickToCopy(event: MouseEvent<HTMLElement>, sectionCode: string) {
     event.stopPropagation();
     await navigator.clipboard.writeText(sectionCode);
